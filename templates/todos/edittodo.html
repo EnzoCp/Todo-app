@@ -1,0 +1,17 @@
+{% extends 'todos/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Edit Todo{% endblock %}
+
+{% block content %}
+    <div style="margin-top: 60px; display: flex; flex-direction: row; justify-content: space-evenly" class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+    <button class="btn btn-primary" type="submit" name="submit">Save Todo</button>
+    <form method="POST" action="{% url 'deletetodo' todo.id %}">
+          {% csrf_token %}
+          <button type="submit" class="card-link btn btn-danger">Delete todo</button>
+    </form>
+    </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'todos/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Add Todo{% endblock %}
+
+{% block content %}
+    <div style="margin-top: 60px; display: flex; flex-direction: row; justify-content: space-evenly" class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+    <button class="btn btn-primary" type="submit" name="submit">Add Todo</button>
+    </form>
+    </div>
+{% endblock %}
